@@ -46,7 +46,7 @@
 			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">东方月初</a></h1>
 		</hgroup>
 		
 
@@ -104,7 +104,7 @@
 				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">东方月初</h1>
 			</hgroup>
 			
 			
@@ -151,6 +151,122 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-一个标题的测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/25/一个标题的测试/">一个标题的测试</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/25/一个标题的测试/" class="archive-article-date">
+  	<time datetime="2019-07-25T06:18:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、前言<br>搭建个人博客也是属于心血来潮，相比较简书和csdn之类而言，个人博客是自由的，自定义自己喜欢的风格，记录自己的学习路程和心得。另外一方面，有属于自己的博客，也是件酷酷的事情。搜索网上搭建个人博客，大多是Github+Hexo的组合，步骤也都大同小异，但是由于博客文章较旧，在实时运行当中，还是会出现不少的bug。前人栽树后人乘凉，为避免后来者掉进相同的坑，特写下搭建博客的步骤。<br>我的博客：<a href="https://fuusy.github.io/" target="_blank" rel="noopener">https://fuusy.github.io/</a></p>
+<p>webBlog.png</p>
+<p>二、准备</p>
+<p>基于Windows系统（开发者最好使用Linux）<br>安装Git</p>
+<p>安装Node.js（下载最新版。安装时，请勾选Add to PATH选项）<br>对以上的Git和Node.js的安装，不详细说明，网上有很多教程。</p>
+<p>安装成功.png</p>
+<p>cmd中输入命令，有版本号出现则安装成功。</p>
+<p>三、搭建流程<br>3.1、安装 Hexo</p>
+<p>npm install -g hexo-cli</p>
+<p>安装hexo命令.png</p>
+<p>安装成功后，在你安装好hexo的那个文件夹中新建一个文件夹，如“Test”。<br>3.2、搭建网站<br>首先我们需要初始化刚新建的文件夹Test</p>
+<p>hexo init Test</p>
+<p>初始化.png</p>
+<p>接着进入Test文件夹，新建建站所需要的文件。</p>
+<p>cd Test<br>npm install</p>
+<p>运行成功后我们可以查询Test这个文件下，可以发现文件夹下新增了很多文件，如下</p>
+<p>Test.png</p>
+<p>找到Test文件夹下 _config.yml ，这个文件就是网站主题的的配置文件，后面和github page关联和切换主题时，需要使用到。<br>最后就是开启服务了，同样输入以下命令</p>
+<p>hexo g<br>hexo s</p>
+<p>image.png</p>
+<p>在执行hexo s 后，会出现一个网址<a href="http://localhost:4000/，将其复制（需要注意的是，在cmd中不可用ctrl" target="_blank" rel="noopener">http://localhost:4000/，将其复制（需要注意的是，在cmd中不可用ctrl</a> + c 来复制，Ctrl + C为停止命令）。打开该网址后，可以看到网站的雏形。</p>
+<p>web</p>
+<p>四、自定义主题<br>4.1、创建github仓库</p>
+<p>创建github仓库</p>
+<p>这里需要注意的是仓库名字前缀需要和Owner一致，如这里Owner为fuusy，那么我的仓库名为fuusy.github.io，前缀必须一致，后面就上github.io。新建成功后，复制ssh。后续修改_config.yml文件会用到。</p>
+<p>image.png</p>
+<p>4.2、切换主题<br>接着开始切换主题并且将文章上传到github上。<br>以我的博客主题为例，我的主题为yilia，从github上克隆该主题。</p>
+<p>git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
+<p>执行后在Test文件夹的themes中可以找到有yilia的文件。</p>
+<p>yilia.png</p>
+<p>找到上面3.2所提到的_config.yml文件，修改里面的配置</p>
+<p>将theme 修改为theme: yilia，需要注意的是冒号后有空格</p>
+<p>将deploy修改为：<br>type: git<br>repository: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:fuusy/fuusy.github.io.git<br>branch: master<br>如图：</p>
+<p>image.png</p>
+<p>4.3、发布<br>接下来需要使用 Git bash 来进行命令的执行，在Test文件夹中右击鼠标，你会发现有Git bash 选项，点击进入。执行命令：</p>
+<p>npm install hexo-deployer-git –save</p>
+<p>最后就是发布了，执行以下命令：</p>
+<p>hexo g<br>hexo d</p>
+<p>完成后，你就有属于自己的博客了，在github的setting中 可以看到自己的博客地址，</p>
+<p>image.png</p>
+<p>webBlog.png</p>
+<p>五、最后<br>至于最后发布文章和自定义各种不同的主题，可自己去探索，至此所有的步骤都已经讲完，希望对你有所帮助。如遇到bug可留言。感谢阅读。</p>
+<p>作者：SGoofy<br>链接：<a href="https://www.jianshu.com/p/1bc0f13c3b97" target="_blank" rel="noopener">https://www.jianshu.com/p/1bc0f13c3b97</a><br>来源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/25/一个标题的测试/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -237,7 +353,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 John Doe
+    		&copy; 2019 东方月初
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -318,6 +434,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
